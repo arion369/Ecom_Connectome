@@ -1,0 +1,182 @@
+{%extends 'User_Master.html'%}
+{% block title%} Home{% endblock title%}
+{% load static %}
+{% block content %}
+<body>
+ <div class="breadcrumb">
+	<div class="container">
+		<div class="breadcrumb-inner">
+			<ul class="list-inline list-unstyled">
+				<li><a href="/user_dash/">Home</a></li>
+				<li class='active'>Userdash</li>
+			</ul>
+		</div><!-- /.breadcrumb-inner -->
+	</div><!-- /.container -->
+</div><!-- /.breadcrumb -->
+
+<div class="body-content">
+	<div class="container height =800">
+		<div class="sign-in-page">
+			<div class="row">
+				<!-- Sign-in -->
+				<div class="col-md-6 col-sm-6 sign-in">
+
+				</div>
+
+				<div class="col-md-6 col-sm-6 sign-in">
+					WELCOME {{full_name}}
+				</div>
+
+				<div class="col-md-6 col-sm-6 sign-in">
+
+				</div>
+				<div class="col-md-6 col-sm-6 sign-in">
+
+				</div>
+				<div class="col-md-6 col-sm-6 sign-in">
+
+				</div>
+				<div class="col-md-6 col-sm-6 sign-in">
+
+				</div>
+				<div class="col-md-6 col-sm-6 sign-in">
+
+				</div>
+				<div class="col-md-6 col-sm-6 sign-in">
+
+				</div>
+				<div class="col-md-6 col-sm-6 sign-in">
+
+				</div>
+
+<!-- Sign-in -->
+				<!-- create a new account -->
+				<div class="col-md-6 col-sm-6 create-new-account">
+
+
+				</div>
+			</div>
+
+		</div>
+
+	</div>
+</div>
+ <!------------------- SCRIPT AREA ---------------------------------------------------------------------------------->
+<script>
+
+   function myMenuFunction() {
+    var i = document.getElementById("navMenu");
+
+    if(i.className === "nav-menu") {
+        i.className += " responsive";
+    } else {
+        i.className = "nav-menu";
+    }
+   }
+
+</script>
+
+<script>
+
+    var a = document.getElementById("loginBtn");
+    var b = document.getElementById("registerBtn");
+    var x = document.getElementById("login");
+    var y = document.getElementById("register");
+
+    function login() {
+        x.style.left = "4px";
+        y.style.right = "-520px";
+        a.className += " white-btn";
+        b.className = "btn";
+        x.style.opacity = 1;
+        y.style.opacity = 0;
+    }
+
+    function register() {
+        x.style.left = "-700px";
+        y.style.right = "15px";
+        a.className = "btn";
+        b.className += " white-btn";
+        x.style.opacity = 0;
+        y.style.opacity = 1;
+    }
+</script>
+
+<script>
+function validatePassword() {
+  const passwordInput = document.getElementById('password_1');
+  const confirmPasswordInput = document.getElementById('confirm_password');
+  const pass = passwordInput.value;
+  const confirmPassword = confirmPasswordInput.value;
+
+  // Check if passwords match
+  if (pass !== confirmPassword) {
+    alert('Passwords do not match!');
+    confirmPasswordInput.value = ''; // Clear confirm password field
+    return false; // Prevent form submission (if applicable)
+  }
+
+  // Passwords match, you can optionally return true or perform other actions here
+  return true; // You can remove this line if no further actions are needed
+}
+
+/<!--/ Attach the validation function to a submit event listener (or another event)
+const form = document.getElementById('Register-form'); // Replace with your actual form ID (if applicable)
+form.addEventListener('submit', validatePassword);
+
+// OR (alternative approach)-->
+
+// Attach the validation function to the keyup event of the confirm password field
+confirmPasswordInput.addEventListener('keyup', validatePassword);
+
+</script>
+
+<script>
+
+    function pass(){
+    const submitButton = document.getElementById('Register-form');
+    const passwordInput = document.getElementById('password_1');
+    const confirmPasswordInput = document.getElementById('confirm_password');
+
+    regi.addEventListener('Register-form', function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+  // Check if passwords match
+  if (passwordInput.value !== confirmPasswordInput.value) {
+    alert("Passwords do not match!");
+    return; // Exit the function if passwords don't match
+  }
+
+  // Password match logic (you can replace this with your actual submission logic)
+  alert("Passwords match! You can now submit the form.");
+  // You can remove the following line if you have your own submission logic
+  // event.target.submit(); // Submit the form after successful validation
+});
+</script>
+
+<script>
+ function fun(){
+   document.getElementById("Register-form").reset();
+   alert('Reset Successfully!!!');
+ }
+ function fun2(){
+ document.getElementById("Register-form").regi();
+    alert('Registered successfully!');
+ }
+</script>
+
+<Script>
+    const registerForm = document.getElementById('Register-form');
+    registerForm.addEventListener('submit', function() {
+    const confirmed = confirm("Are you sure you want to Register this details ?");
+    if (confirmed) {
+        // Redirect to login page on confirmation
+        alert('You are successfully, registered. Kindly Login with your new Registered username and Password');
+        window.location.href = "/index.html"; // Replace "/login" with your actual login page URL
+    }
+    });
+
+</script>
+</body>
+
+{% endblock %}

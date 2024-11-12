@@ -1,0 +1,1914 @@
+{%extends 'base.html'%}
+{% block title%} Home{% endblock title%}
+{% load static %}
+{% block content %}
+
+<!--    <div>-->
+<!--        <img src="{% static 'Images/Connect_1.jpg' %}" alt="wallpaper" style="height:800px; width:1900px;">-->
+<!--    </div>-->
+
+
+	<!-- Bootstrap -->
+	<link rel="stylesheet" href="{% static 'css/bootstrap.css'%}">
+	<!-- Magnific Popup -->
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.min.css' %}">
+	<!-- Font Awesome -->
+    <link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">
+	<!-- Fancybox -->
+	<link rel="stylesheet" href="{%static 'css/jquery.fancybox.min.css'%}">
+	<!-- Themify Icons -->
+    <link rel="stylesheet" href="{%static 'css/themify-icons.css'%}">
+	<!-- Nice Select CSS -->
+    <link rel="stylesheet" href="{%static 'css/niceselect.css'%}">
+	<!-- Animate CSS -->
+    <link rel="stylesheet" href="{%static 'css/animate.css'%}">
+	<!-- Flex Slider CSS -->
+    <link rel="stylesheet" href="{%static 'css/flex-slider.min.css'%}">
+	<!-- Owl Carousel -->
+    <link rel="stylesheet" href="{%static 'css/owl-carousel.css'%}">
+	<!-- Slicknav -->
+    <link rel="stylesheet" href="{%static 'css/slicknav.min.css'%}">
+
+	<!-- Eshop StyleSheet -->
+	<link rel="stylesheet" href="{%static 'css/reset.css'%}">
+	<link rel="stylesheet" href="{%static 'style.css'%}">
+    <link rel="stylesheet" href="{%static 'css/responsive.css'%}">
+
+
+    <div>
+        <h1>Our Products Collection</h1>
+        <div class="container">
+            <div class="row">
+                {% for product in products %}
+                <div class="col-md-4 mt-3">
+                     <div class="card" style="width: 18rem;">
+                          <img src="{{product.image.url}}" class="card-img-top" alt="not found" height="200px" width="150px">
+                          <h6 class="card-title" align="center">{{product.category}}</h6>
+                         <div class="card-body">
+                             <h5 class="card-title">{{product.name}}</h5>
+                             <h5 class="card-title"> Price: Rs.{{ product.price}}</h5>
+                             <p class="card-text">{{product.description|slice:"0:53"}}...</p>
+                             <a href="#" class="btn btn-primary">Add to cart</a>
+                         </div>
+                     </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+	<!-- Start Product Area -->
+ <!--   <div class="product-area section">
+            <div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="section-title">
+							<h2>Trending Products</h2>
+						</div>
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-12">
+						<div class="product-info">
+
+							<div class="tab-content" id="myTabContent">
+								&lt;!&ndash; Start Single Tab &ndash;&gt;
+								<div class="tab-pane fade show active" id="man" role="tabpanel">
+									<div class="tab-single">
+										<div class="row">
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">{{product.name}}</a></h3>
+														<div class="product-price">
+															<span> Price: Rs.{{ product.price}}</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Awesome Pink Show</a></h3>
+														<div class="product-price">
+															<span> Price: Rs.{{ product.price}}</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Awesome Bags Collection</a></h3>
+														<div class="product-price">
+															<span>$29.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+															<span class="new">New</span>
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Women Pant Collectons</a></h3>
+														<div class="product-price">
+															<span>$29.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Awesome Bags Collection</a></h3>
+														<div class="product-price">
+															<span>$29.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+															<span class="price-dec">30% Off</span>
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Awesome Cap For Women</a></h3>
+														<div class="product-price">
+															<span>$29.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Polo Dress For Women</a></h3>
+														<div class="product-price">
+															<span>$29.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+															<span class="out-of-stock">Hot</span>
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Black Sunglass For Women</a></h3>
+														<div class="product-price">
+															<span class="old">$60.00</span>
+															<span>$50.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								&lt;!&ndash;/ End Single Tab &ndash;&gt;
+								&lt;!&ndash; Start Single Tab &ndash;&gt;
+								<div class="tab-pane fade" id="women" role="tabpanel">
+									<div class="tab-single">
+										<div class="row">
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Women Hot Collection</a></h3>
+														<div class="product-price">
+															<span>$29.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Awesome Pink Show</a></h3>
+														<div class="product-price">
+															<span>$29.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Awesome Bags Collection</a></h3>
+														<div class="product-price">
+															<span>$29.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+															<span class="new">New</span>
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Women Pant Collectons</a></h3>
+														<div class="product-price">
+															<span>$29.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Awesome Bags Collection</a></h3>
+														<div class="product-price">
+															<span>$29.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+															<span class="price-dec">30% Off</span>
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Awesome Cap For Women</a></h3>
+														<div class="product-price">
+															<span>$29.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Polo Dress For Women</a></h3>
+														<div class="product-price">
+															<span>$29.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+															<span class="out-of-stock">Hot</span>
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Black Sunglass For Women</a></h3>
+														<div class="product-price">
+															<span class="old">$60.00</span>
+															<span>$50.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								&lt;!&ndash;/ End Single Tab &ndash;&gt;
+								&lt;!&ndash; Start Single Tab &ndash;&gt;
+								<div class="tab-pane fade" id="kids" role="tabpanel">
+									<div class="tab-single">
+										<div class="row">
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Women Hot Collection</a></h3>
+														<div class="product-price">
+															<span>$29.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Awesome Pink Show</a></h3>
+														<div class="product-price">
+															<span>$29.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Awesome Bags Collection</a></h3>
+														<div class="product-price">
+															<span>$29.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+															<span class="new">New</span>
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Women Pant Collectons</a></h3>
+														<div class="product-price">
+															<span>$29.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Awesome Bags Collection</a></h3>
+														<div class="product-price">
+															<span>$29.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+															<span class="price-dec">30% Off</span>
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Awesome Cap For Women</a></h3>
+														<div class="product-price">
+															<span>$29.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Polo Dress For Women</a></h3>
+														<div class="product-price">
+															<span>$29.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+															<span class="out-of-stock">Hot</span>
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Black Sunglass For Women</a></h3>
+														<div class="product-price">
+															<span class="old">$60.00</span>
+															<span>$50.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								&lt;!&ndash;/ End Single Tab &ndash;&gt;
+								&lt;!&ndash; Start Single Tab &ndash;&gt;
+								<div class="tab-pane fade" id="accessories" role="tabpanel">
+									<div class="tab-single">
+										<div class="row">
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Women Hot Collection</a></h3>
+														<div class="product-price">
+															<span>$29.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Awesome Pink Show</a></h3>
+														<div class="product-price">
+															<span>$29.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Awesome Bags Collection</a></h3>
+														<div class="product-price">
+															<span>$29.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+															<span class="new">New</span>
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Women Pant Collectons</a></h3>
+														<div class="product-price">
+															<span>$29.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Awesome Bags Collection</a></h3>
+														<div class="product-price">
+															<span>$29.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+															<span class="price-dec">30% Off</span>
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Awesome Cap For Women</a></h3>
+														<div class="product-price">
+															<span>$29.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Polo Dress For Women</a></h3>
+														<div class="product-price">
+															<span>$29.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+															<span class="out-of-stock">Hot</span>
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Black Sunglass For Women</a></h3>
+														<div class="product-price">
+															<span class="old">$60.00</span>
+															<span>$50.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								&lt;!&ndash;/ End Single Tab &ndash;&gt;
+								&lt;!&ndash; Start Single Tab &ndash;&gt;
+								<div class="tab-pane fade" id="essential" role="tabpanel">
+									<div class="tab-single">
+										<div class="row">
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Women Hot Collection</a></h3>
+														<div class="product-price">
+															<span>$29.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Awesome Pink Show</a></h3>
+														<div class="product-price">
+															<span>$29.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Awesome Bags Collection</a></h3>
+														<div class="product-price">
+															<span>$29.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+															<span class="new">New</span>
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Women Pant Collectons</a></h3>
+														<div class="product-price">
+															<span>$29.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Awesome Bags Collection</a></h3>
+														<div class="product-price">
+															<span>$29.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+															<span class="price-dec">30% Off</span>
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Awesome Cap For Women</a></h3>
+														<div class="product-price">
+															<span>$29.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Polo Dress For Women</a></h3>
+														<div class="product-price">
+															<span>$29.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+															<span class="out-of-stock">Hot</span>
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Black Sunglass For Women</a></h3>
+														<div class="product-price">
+															<span class="old">$60.00</span>
+															<span>$50.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								&lt;!&ndash;/ End Single Tab &ndash;&gt;
+								&lt;!&ndash; Start Single Tab &ndash;&gt;
+								<div class="tab-pane fade" id="prices" role="tabpanel">
+									<div class="tab-single">
+										<div class="row">
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Women Hot Collection</a></h3>
+														<div class="product-price">
+															<span>$29.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Awesome Pink Show</a></h3>
+														<div class="product-price">
+															<span>$29.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Awesome Bags Collection</a></h3>
+														<div class="product-price">
+															<span>$29.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+															<span class="new">New</span>
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Women Pant Collectons</a></h3>
+														<div class="product-price">
+															<span>$29.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Awesome Bags Collection</a></h3>
+														<div class="product-price">
+															<span>$29.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+															<span class="price-dec">30% Off</span>
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Awesome Cap For Women</a></h3>
+														<div class="product-price">
+															<span>$29.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Polo Dress For Women</a></h3>
+														<div class="product-price">
+															<span>$29.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+											<div class="col-xl-3 col-lg-4 col-md-4 col-12">
+												<div class="single-product">
+													<div class="product-img">
+														<a href="product-details.html">
+															<img class="default-img" src="https://via.placeholder.com/550x750" alt="#">
+															<img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">
+															<span class="out-of-stock">Hot</span>
+														</a>
+														<div class="button-head">
+															<div class="product-action">
+																<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+																<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+																<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+															</div>
+															<div class="product-action-2">
+																<a title="Add to cart" href="#">Add to cart</a>
+															</div>
+														</div>
+													</div>
+													<div class="product-content">
+														<h3><a href="product-details.html">Black Sunglass For Women</a></h3>
+														<div class="product-price">
+															<span class="old">$60.00</span>
+															<span>$50.00</span>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								&lt;!&ndash;/ End Single Tab &ndash;&gt;
+							</div>
+						</div>
+					</div>
+				</div>
+            </div>
+    </div>-->
+	<!-- End Product Area -->
+
+
+<div class="product-area most-popular section">
+        <div class="container">
+            <div class="row">
+				<div class="col-12">
+					<div class="section-title">
+						<h2>Hot Item</h2>
+					</div>
+				</div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="owl-carousel popular-slider">
+						<!-- Start Single Product -->
+						<div class="single-product">
+							{% for product in products %}
+							<div class="product-img">
+								<a href="product-details.html">
+									<img class="default-img" src="{{product.image.url}}" height="550px" width="750px" alt="Out of Stock">
+									<img class="hover-img" src="{{product.image.url}}" height="550px" width="750px"alt="Out of Stock">
+									<span class="out-of-stock">Hot</span>
+								</a>
+
+								<div class="button-head">
+									<div class="product-action">
+										<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>
+										<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>
+										<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>
+									</div>
+									<div class="product-action-2">
+										<a title="Add to cart" href="#">Add to cart</a>
+									</div>
+								</div>
+							</div>
+							<div class="product-content">
+								<h3><a href="product-details.html">{{product.name}}</a></h3>
+								<div class="product-price">
+									<span class="old">Price: Rs.{{ product.price}}</span>
+									<span>Price: Rs.{{ product.price}}</span>
+								</div>
+							</div>
+							{% endfor %}
+						</div>
+						<!-- End Single Product -->
+								<!-- Start Single Product -->
+<!--						<div class="single-product">-->
+<!--                            <div class="product-img">-->
+<!--                                <a href="product-details.html">-->
+<!--                                    <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">-->
+<!--                                    <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">-->
+<!--                                </a>-->
+<!--								<div class="button-head">-->
+<!--									<div class="product-action">-->
+<!--										<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>-->
+<!--										<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>-->
+<!--										<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>-->
+<!--									</div>-->
+<!--									<div class="product-action-2">-->
+<!--										<a title="Add to cart" href="#">Add to cart</a>-->
+<!--									</div>-->
+<!--								</div>-->
+<!--                            </div>-->
+<!--                            <div class="product-content">-->
+<!--                                <h3><a href="product-details.html">Awesome Bags Collection</a></h3>-->
+<!--                                <div class="product-price">-->
+<!--                                    <span>$50.00</span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+						<!-- End Single Product -->
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+
+	<!-- Jquery -->
+    <script src="{% static 'js/jquery.min.js'%}"></script>
+    <script src="{% static 'js/jquery-migrate-3.0.0.js'%}"></script>
+	<script src="{% static 'js/jquery-ui.min.js'%}"></script>
+	<!-- Popper JS -->
+	<script src="{% static 'js/popper.min.js' %}"></script>
+	<!-- Bootstrap JS -->
+	<script src="{% static 'js/bootstrap.min.js' %}"></script>
+	<!-- Color JS -->
+	<script src="{% static 'js/colors.js'%}"></script>
+	<!-- Slicknav JS -->
+	<script src="{% static 'js/slicknav.min.js' %}"></script>
+	<!-- Owl Carousel JS -->
+	<script src="{% static 'js/owl-carousel.js' %}"></script>
+	<!-- Magnific Popup JS -->
+	<script src="{% static 'js/magnific-popup.js' %}"></script>
+	<!-- Waypoints JS -->
+	<script src="{% static 'js/waypoints.min.js'%}"></script>
+	<!-- Countdown JS -->
+	<script src="{% static 'js/finalcountdown.min.js'%}"></script>
+	<!-- Nice Select JS -->
+	<script src="{% static 'js/nicesellect.js' %}"></script>
+	<!-- Flex Slider JS -->
+	<script src="{% static 'js/flex-slider.js' %}"></script>
+	<!-- ScrollUp JS -->
+	<script src="{% static 'js/scrollup.js'%}"></script>
+	<!-- Onepage Nav JS -->
+	<script src="{% static 'js/onepage-nav.min.js' %}"></script>
+	<!-- Easing JS -->
+	<script src="{% static 'js/easing.js' %}"></script>
+	<!-- Active JS -->
+	<script src="{% static 'js/active.js' %}"></script>
+
+{% endblock %}
+
+
+
+
+
+<!--						&lt;!&ndash; Start Single Product &ndash;&gt;-->
+<!--						<div class="single-product">-->
+<!--                            <div class="product-img">-->
+<!--                                <a href="product-details.html">-->
+<!--                                    <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">-->
+<!--                                    <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">-->
+<!--                                </a>-->
+<!--								<div class="button-head">-->
+<!--									<div class="product-action">-->
+<!--										<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>-->
+<!--										<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>-->
+<!--										<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>-->
+<!--									</div>-->
+<!--									<div class="product-action-2">-->
+<!--										<a title="Add to cart" href="#">Add to cart</a>-->
+<!--									</div>-->
+<!--								</div>-->
+<!--                            </div>-->
+<!--                            <div class="product-content">-->
+<!--                                <h3><a href="product-details.html">Women Hot Collection</a></h3>-->
+<!--                                <div class="product-price">-->
+<!--                                    <span>$50.00</span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--						&lt;!&ndash; End Single Product &ndash;&gt;-->
+<!--						&lt;!&ndash; Start Single Product &ndash;&gt;-->
+<!--						<div class="single-product">-->
+<!--                            <div class="product-img">-->
+<!--                                <a href="product-details.html">-->
+<!--                                    <img class="default-img" src="https://via.placeholder.com/550x750" alt="#">-->
+<!--                                    <img class="hover-img" src="https://via.placeholder.com/550x750" alt="#">-->
+<!--									<span class="new">New</span>-->
+<!--                                </a>-->
+<!--								<div class="button-head">-->
+<!--									<div class="product-action">-->
+<!--										<a data-toggle="modal" data-target="#exampleModal" title="Quick View" href="#"><i class=" ti-eye"></i><span>Quick Shop</span></a>-->
+<!--										<a title="Wishlist" href="#"><i class=" ti-heart "></i><span>Add to Wishlist</span></a>-->
+<!--										<a title="Compare" href="#"><i class="ti-bar-chart-alt"></i><span>Add to Compare</span></a>-->
+<!--									</div>-->
+<!--									<div class="product-action-2">-->
+<!--										<a title="Add to cart" href="#">Add to cart</a>-->
+<!--									</div>-->
+<!--								</div>-->
+<!--                            </div>-->
+<!--                            <div class="product-content">-->
+<!--                                <h3><a href="product-details.html">Awesome Pink Show</a></h3>-->
+<!--                                <div class="product-price">-->
+<!--                                    <span>$50.00</span>-->
+<!--                                </div>-->
+<!--                            </div>-->
+<!--                        </div>-->
+<!--						&lt;!&ndash; End Single Product &ndash;&gt;-->
+<!--				-->
+
+
+  <!-- ============================================== HOT DEALS ============================================== -->
+        <div class="sidebar-widget hot-deals outer-bottom-xs">
+          <h3 class="section-title">Hot deals</h3>
+          <div class="owl-carousel sidebar-carousel custom-carousel owl-theme outer-top-ss">
+            <div class="item">
+              <div class="products">
+                <div class="hot-deal-wrapper">
+                  <div class="image">
+                  <a href="#">
+                  <img src="assets/images/hot-deals/p13.jpg" alt="">
+                  <img src="assets/images/hot-deals/p13_hover.jpg" alt="" class="hover-image">
+                  </a>
+                  </div>
+                  <div class="sale-offer-tag"><span>49%<br>
+                    off</span></div>
+                  <div class="timing-wrapper">
+                    <div class="box-wrapper">
+                      <div class="date box"> <span class="key">120</span> <span class="value">DAYS</span> </div>
+                    </div>
+                    <div class="box-wrapper">
+                      <div class="hour box"> <span class="key">20</span> <span class="value">HRS</span> </div>
+                    </div>
+                    <div class="box-wrapper">
+                      <div class="minutes box"> <span class="key">36</span> <span class="value">MINS</span> </div>
+                    </div>
+                    <div class="box-wrapper">
+                      <div class="seconds box"> <span class="key">60</span> <span class="value">SEC</span> </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.hot-deal-wrapper -->
+
+                <div class="product-info text-left m-t-20">
+                  <h3 class="name"><a href="detail.html">Floral Print Buttoned</a></h3>
+                  <div class="rating rateit-small"></div>
+                  <div class="product-price"> <span class="price"> $600.00 </span> <span class="price-before-discount">$800.00</span> </div>
+                  <!-- /.product-price -->
+
+                </div>
+                <!-- /.product-info -->
+
+                <div class="cart clearfix animate-effect">
+                  <div class="action">
+                    <div class="add-cart-button btn-group">
+                      <button class="btn btn-primary icon" data-toggle="dropdown" type="button"> <i class="fa fa-shopping-cart"></i> </button>
+                      <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
+                    </div>
+                  </div>
+                  <!-- /.action -->
+                </div>
+                <!-- /.cart -->
+              </div>
+            </div>
+            <div class="item">
+              <div class="products">
+                <div class="hot-deal-wrapper">
+                  <div class="image">
+                   <a href="#">
+                  <img src="assets/images/hot-deals/p14.jpg" alt="">
+                  <img src="assets/images/hot-deals/p14_hover.jpg" alt="" class="hover-image">
+                  </a>
+                   </div>
+                  <div class="sale-offer-tag"><span>35%<br>
+                    off</span></div>
+                  <div class="timing-wrapper">
+                    <div class="box-wrapper">
+                      <div class="date box"> <span class="key">120</span> <span class="value">Days</span> </div>
+                    </div>
+                    <div class="box-wrapper">
+                      <div class="hour box"> <span class="key">20</span> <span class="value">HRS</span> </div>
+                    </div>
+                    <div class="box-wrapper">
+                      <div class="minutes box"> <span class="key">36</span> <span class="value">MINS</span> </div>
+                    </div>
+                    <div class="box-wrapper">
+                      <div class="seconds box"> <span class="key">60</span> <span class="value">SEC</span> </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.hot-deal-wrapper -->
+
+                <div class="product-info text-left m-t-20">
+                  <h3 class="name"><a href="detail.html">Floral Print Buttoned</a></h3>
+                  <div class="rating rateit-small"></div>
+                  <div class="product-price"> <span class="price"> $600.00 </span> <span class="price-before-discount">$800.00</span> </div>
+                  <!-- /.product-price -->
+
+                </div>
+                <!-- /.product-info -->
+
+                <div class="cart clearfix animate-effect">
+                  <div class="action">
+                    <div class="add-cart-button btn-group">
+                      <button class="btn btn-primary icon" data-toggle="dropdown" type="button"> <i class="fa fa-shopping-cart"></i> </button>
+                      <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
+                    </div>
+                  </div>
+                  <!-- /.action -->
+                </div>
+                <!-- /.cart -->
+              </div>
+            </div>
+            <div class="item">
+              <div class="products">
+                <div class="hot-deal-wrapper">
+                  <div class="image">
+                   <a href="#">
+                  <img src="assets/images/hot-deals/p15.jpg" alt="">
+                  <img src="assets/images/hot-deals/p15_hover.jpg" alt="" class="hover-image">
+                  </a>
+                   </div>
+                  <div class="sale-offer-tag"><span>35%<br>
+                    off</span></div>
+                  <div class="timing-wrapper">
+                    <div class="box-wrapper">
+                      <div class="date box"> <span class="key">120</span> <span class="value">Days</span> </div>
+                    </div>
+                    <div class="box-wrapper">
+                      <div class="hour box"> <span class="key">20</span> <span class="value">HRS</span> </div>
+                    </div>
+                    <div class="box-wrapper">
+                      <div class="minutes box"> <span class="key">36</span> <span class="value">MINS</span> </div>
+                    </div>
+                    <div class="box-wrapper">
+                      <div class="seconds box"> <span class="key">60</span> <span class="value">SEC</span> </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- /.hot-deal-wrapper -->
+
+                <div class="product-info text-left m-t-20">
+                  <h3 class="name"><a href="detail.html">Floral Print Buttoned</a></h3>
+                  <div class="rating rateit-small"></div>
+                  <div class="product-price"> <span class="price"> $600.00 </span> <span class="price-before-discount">$800.00</span> </div>
+                  <!-- /.product-price -->
+
+                </div>
+                <!-- /.product-info -->
+
+                <div class="cart clearfix animate-effect">
+                  <div class="action">
+                    <div class="add-cart-button btn-group">
+                      <button class="btn btn-primary icon" data-toggle="dropdown" type="button"> <i class="fa fa-shopping-cart"></i> </button>
+                      <button class="btn btn-primary cart-btn" type="button">Add to cart</button>
+                    </div>
+                  </div>
+                  <!-- /.action -->
+                </div>
+                <!-- /.cart -->
+              </div>
+            </div>
+          </div>
+          <!-- /.sidebar-widget -->
+        </div>
+        <!-- ============================================== HOT DEALS: END ============================================== -->
+
+        <!-- ============================================== SPECIAL OFFER ============================================== -->
+
+        <div class="sidebar-widget outer-bottom-small">
+          <h3 class="section-title">Special Offer</h3>
+          <div class="sidebar-widget-body outer-top-xs">
+            <div class="owl-carousel sidebar-carousel special-offer custom-carousel owl-theme outer-top-xs">
+              <div class="item">
+                <div class="products special-product">
+                  <div class="product">
+                    <div class="product-micro">
+                      <div class="row product-micro-row">
+                        <div class="col col-xs-5">
+                          <div class="product-image">
+                            <div class="image"> <a href="#"> <img src="assets/images/products/p5.jpg" alt=""> </a> </div>
+                            <!-- /.image -->
+
+                          </div>
+                          <!-- /.product-image -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col col-xs-7">
+                          <div class="product-info">
+                            <h3 class="name"><a href="#">Floral Print Shirt</a></h3>
+                            <div class="rating rateit-small"></div>
+                            <div class="product-price"> <span class="price"> $450.99 </span> </div>
+                            <!-- /.product-price -->
+
+                          </div>
+                        </div>
+                        <!-- /.col -->
+                      </div>
+                      <!-- /.product-micro-row -->
+                    </div>
+                    <!-- /.product-micro -->
+
+                  </div>
+                  <div class="product">
+                    <div class="product-micro">
+                      <div class="row product-micro-row">
+                        <div class="col col-xs-5">
+                          <div class="product-image">
+                            <div class="image"> <a href="#"> <img src="assets/images/products/p9.jpg" alt=""> </a> </div>
+                            <!-- /.image -->
+
+                          </div>
+                          <!-- /.product-image -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col col-xs-7">
+                          <div class="product-info">
+                            <h3 class="name"><a href="#">Floral Print Shirt</a></h3>
+                            <div class="rating rateit-small"></div>
+                            <div class="product-price"> <span class="price"> $450.99 </span> </div>
+                            <!-- /.product-price -->
+
+                          </div>
+                        </div>
+                        <!-- /.col -->
+                      </div>
+                      <!-- /.product-micro-row -->
+                    </div>
+                    <!-- /.product-micro -->
+
+                  </div>
+                  <div class="product">
+                    <div class="product-micro">
+                      <div class="row product-micro-row">
+                        <div class="col col-xs-5">
+                          <div class="product-image">
+                            <div class="image"> <a href="#"> <img src="assets/images/products/p11.jpg" alt=""> </a> </div>
+                            <!-- /.image -->
+
+                          </div>
+                          <!-- /.product-image -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col col-xs-7">
+                          <div class="product-info">
+                            <h3 class="name"><a href="#">Floral Print Shirt</a></h3>
+                            <div class="rating rateit-small"></div>
+                            <div class="product-price"> <span class="price"> $450.99 </span> </div>
+                            <!-- /.product-price -->
+
+                          </div>
+                        </div>
+                        <!-- /.col -->
+                      </div>
+                      <!-- /.product-micro-row -->
+                    </div>
+                    <!-- /.product-micro -->
+
+                  </div>
+                </div>
+              </div>
+              <div class="item">
+                <div class="products special-product">
+                  <div class="product">
+                    <div class="product-micro">
+                      <div class="row product-micro-row">
+                        <div class="col col-xs-5">
+                          <div class="product-image">
+                            <div class="image"> <a href="#"> <img src="assets/images/products/p15.jpg" alt=""> </a> </div>
+                            <!-- /.image -->
+
+                          </div>
+                          <!-- /.product-image -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col col-xs-7">
+                          <div class="product-info">
+                            <h3 class="name"><a href="#">Floral Print Shirt</a></h3>
+                            <div class="rating rateit-small"></div>
+                            <div class="product-price"> <span class="price"> $450.99 </span> </div>
+                            <!-- /.product-price -->
+
+                          </div>
+                        </div>
+                        <!-- /.col -->
+                      </div>
+                      <!-- /.product-micro-row -->
+                    </div>
+                    <!-- /.product-micro -->
+
+                  </div>
+                  <div class="product">
+                    <div class="product-micro">
+                      <div class="row product-micro-row">
+                        <div class="col col-xs-5">
+                          <div class="product-image">
+                            <div class="image"> <a href="#"> <img src="assets/images/products/p13.jpg" alt=""> </a> </div>
+                            <!-- /.image -->
+
+                          </div>
+                          <!-- /.product-image -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col col-xs-7">
+                          <div class="product-info">
+                            <h3 class="name"><a href="#">Floral Print Shirt</a></h3>
+                            <div class="rating rateit-small"></div>
+                            <div class="product-price"> <span class="price"> $450.99 </span> </div>
+                            <!-- /.product-price -->
+
+                          </div>
+                        </div>
+                        <!-- /.col -->
+                      </div>
+                      <!-- /.product-micro-row -->
+                    </div>
+                    <!-- /.product-micro -->
+
+                  </div>
+                  <div class="product">
+                    <div class="product-micro">
+                      <div class="row product-micro-row">
+                        <div class="col col-xs-5">
+                          <div class="product-image">
+                            <div class="image"> <a href="#"> <img src="assets/images/products/p12.jpg" alt=""> </a> </div>
+                            <!-- /.image -->
+
+                          </div>
+                          <!-- /.product-image -->
+                        </div>
+                        <!-- /.col -->
+                        <div class="col col-xs-7">
+                          <div class="product-info">
+                            <h3 class="name"><a href="#">Floral Print Shirt</a></h3>
+                            <div class="rating rateit-small"></div>
+                            <div class="product-price"> <span class="price"> $450.99 </span> </div>
+                            <!-- /.product-price -->
+
+                          </div>
+                        </div>
+                        <!-- /.col -->
+                      </div>
+                      <!-- /.product-micro-row -->
+                    </div>
+                    <!-- /.product-micro -->
+
+                  </div>
+                </div>
+              </div>
